@@ -67,7 +67,7 @@ In one terminal:
 
 ```bash
 source venv/bin/activate
-./run_app.sh
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### 8. Start the Celery worker
@@ -76,7 +76,7 @@ In another terminal:
 
 ```bash
 source venv/bin/activate
-./run_celery.sh
+celery -A app.celery_app worker --loglevel=info
 ```
 
 ## API Documentation
